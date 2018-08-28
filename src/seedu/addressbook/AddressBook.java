@@ -477,10 +477,10 @@ public class AddressBook {
     }
 
     /**
-     * Retrieves all persons in the full model whose names contain some of the specified keywords.
+     * Retrieves all persons in the full model whose names or phone or email contains some of the specified keywords.
      *
      * @param keywords for searching
-     * @return list of persons in full model with name containing some of the keywords
+     * @return list of persons in full model with name or phone or email containing some of the keywords
      */
     private static ArrayList<String[]> getPersonsWithNameContainingAnyKeyword(Collection<String> keywords) {
         final ArrayList<String[]> matchedPersons = new ArrayList<>();
