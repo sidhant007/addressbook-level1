@@ -486,7 +486,10 @@ public class AddressBook {
         final ArrayList<String[]> matchedPersons = new ArrayList<>();
         for (String[] person : getAllPersonsInAddressBook()) {
             final Set<String> wordsInName = new HashSet<>(splitByWhitespace(getNameFromPerson(person)));
-            if (!Collections.disjoint(wordsInName, keywords)) {
+            final Set<String> unionOfAllInfo = new HashSet<>(wordsInName);
+            unionOfAllInfo.add(getEmailFromPerson(person));
+            unionOfAllInfo.add(getPhoneFromPerson(person));
+            if (!Collections.disjoint(unionOfAllInfo, keywords)) {
                 matchedPersons.add(person);
             }
         }
